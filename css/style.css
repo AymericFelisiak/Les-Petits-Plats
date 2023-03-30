@@ -1,0 +1,54 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+.header-wrapper a img {
+  height: 100px;
+}
+
+main {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.searchbar-wrapper {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+.searchbar-wrapper input {
+  width: 95%;
+  height: 100%;
+  border: none;
+  background-color: #E7E7E7;
+  font-family: "Lato";
+  font-size: 18px;
+  padding-left: 25px;
+}
+.searchbar-wrapper input:focus {
+  outline: none;
+}
+.searchbar-wrapper button {
+  border: none;
+  background-color: #E7E7E7;
+  height: 100%;
+  width: 5%;
+  cursor: pointer;
+}
+.searchbar-wrapper button .fa-magnifying-glass {
+  font-size: 32px;
+}
+
+/*# sourceMappingURL=style.css.map */

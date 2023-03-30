@@ -1,0 +1,30 @@
+{
+  "name": "projet7-les-petits-plats",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AymericFelisiak/Les-Petits-Plats.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AymericFelisiak/Les-Petits-Plats/issues"
+  },
+  "homepage": "https://github.com/AymericFelisiak/Les-Petits-Plats#readme",
+  "dependencies": {
+    "sass": "^1.60.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.37.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-promise": "^6.1.1"
+  }
+}
