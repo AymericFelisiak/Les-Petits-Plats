@@ -59,3 +59,53 @@ main {
         }
     }
 }
+
+.filter-tags-wrapper {
+    display: flex;
+    margin-top: 20px;
+    column-gap: 20px;
+
+    div {
+        display: flex;
+        align-items: center;
+        height: 70px;
+        border-radius: 5px;
+        width: 170px;
+
+        input {
+            width: 70%;
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-family: 'Lato';
+            font-weight: 700;
+            font-size: 18px;
+            padding-left: 15px;
+    
+            &::placeholder {
+                color: white;
+            }
+    
+            &:focus {
+                outline: none;
+            }
+        }
+
+        i {
+            padding-right: 25px;
+            color: white;
+        }
+    }
+
+    .ingredients {
+        background-color: $blue;
+    }
+
+    .devices {
+        background-color: $green;
+    }
+
+    .ustensils {
+        background-color: $orange;
+    }
+}

@@ -51,4 +51,46 @@ main {
   font-size: 32px;
 }
 
+.filter-tags-wrapper {
+  display: flex;
+  margin-top: 20px;
+  column-gap: 20px;
+}
+.filter-tags-wrapper div {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  border-radius: 5px;
+  width: 170px;
+}
+.filter-tags-wrapper div input {
+  width: 70%;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 18px;
+  padding-left: 15px;
+}
+.filter-tags-wrapper div input::placeholder {
+  color: white;
+}
+.filter-tags-wrapper div input:focus {
+  outline: none;
+}
+.filter-tags-wrapper div i {
+  padding-right: 25px;
+  color: white;
+}
+.filter-tags-wrapper .ingredients {
+  background-color: #3282F7;
+}
+.filter-tags-wrapper .devices {
+  background-color: #68D9A4;
+}
+.filter-tags-wrapper .ustensils {
+  background-color: #ED6454;
+}
+
 /*# sourceMappingURL=style.css.map */
