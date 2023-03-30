@@ -101,11 +101,91 @@ main {
         background-color: $blue;
     }
 
-    .devices {
+    .appliance {
         background-color: $green;
     }
 
     .ustensils {
         background-color: $orange;
+    }
+}
+
+.section-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px;
+    margin-top: 25px;
+
+    .article-wrapper {
+        height: 365px;
+        
+        .img-wrapper {
+            background-color: $grey;
+            height: 175px;
+        }
+
+        .information-wrapper {
+            background-color: $lightgrey;
+            height: 190px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 20px;
+            overflow: hidden;
+
+            .top-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .dish-name-wrapper {
+                    display: flex;
+
+                    h2 {
+                        font-family: 'Lato';
+                        font-weight: 400;
+                        font-size: 18px;
+                    }
+                }
+                
+                .cooking-time-wrapper {
+                    display: flex;
+                    align-items: center;
+                    column-gap: 5px;
+
+                    .fa-clock {
+                        font-size: 20px;
+                    }
+
+                    .time {
+                        font-family: 'Lato';
+                        font-style: normal;
+                        font-weight: 700;
+                        font-size: 18px;
+                    }
+                }
+            }
+
+            .bottom-wrapper {
+                display: flex;
+                height: 110px;
+                overflow: hidden;
+
+                .ingredients-list-wrapper {
+                    width: 50%;
+                    font-family: 'Roboto';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 12px;
+                }
+
+                .description-wrapper {
+                    width: 50%;
+                    font-family: 'Roboto';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 12px;
+                }
+            }
+        }
     }
 }

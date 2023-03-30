@@ -86,11 +86,79 @@ main {
 .filter-tags-wrapper .ingredients {
   background-color: #3282F7;
 }
-.filter-tags-wrapper .devices {
+.filter-tags-wrapper .appliance {
   background-color: #68D9A4;
 }
 .filter-tags-wrapper .ustensils {
   background-color: #ED6454;
+}
+
+.section-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+  margin-top: 25px;
+}
+.section-wrapper .article-wrapper {
+  height: 365px;
+}
+.section-wrapper .article-wrapper .img-wrapper {
+  background-color: #C7BEBE;
+  height: 175px;
+}
+.section-wrapper .article-wrapper .information-wrapper {
+  background-color: #E7E7E7;
+  height: 190px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  overflow: hidden;
+}
+.section-wrapper .article-wrapper .information-wrapper .top-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.section-wrapper .article-wrapper .information-wrapper .top-wrapper .dish-name-wrapper {
+  display: flex;
+}
+.section-wrapper .article-wrapper .information-wrapper .top-wrapper .dish-name-wrapper h2 {
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 18px;
+}
+.section-wrapper .article-wrapper .information-wrapper .top-wrapper .cooking-time-wrapper {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+}
+.section-wrapper .article-wrapper .information-wrapper .top-wrapper .cooking-time-wrapper .fa-clock {
+  font-size: 20px;
+}
+.section-wrapper .article-wrapper .information-wrapper .top-wrapper .cooking-time-wrapper .time {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+}
+.section-wrapper .article-wrapper .information-wrapper .bottom-wrapper {
+  display: flex;
+  height: 110px;
+  overflow: hidden;
+}
+.section-wrapper .article-wrapper .information-wrapper .bottom-wrapper .ingredients-list-wrapper {
+  width: 50%;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+}
+.section-wrapper .article-wrapper .information-wrapper .bottom-wrapper .description-wrapper {
+  width: 50%;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
 }
 
 /*# sourceMappingURL=style.css.map */
