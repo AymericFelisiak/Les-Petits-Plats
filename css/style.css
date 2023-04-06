@@ -53,17 +53,43 @@ main {
 
 .filter-tags-wrapper {
   display: flex;
+  flex-direction: column;
   margin-top: 20px;
-  column-gap: 20px;
+  row-gap: 15px;
 }
 .filter-tags-wrapper div {
+  border-radius: 5px;
+}
+.filter-tags-wrapper .selected-tags-wrapper {
+  display: none;
+  min-height: 40px;
+  column-gap: 15px;
+}
+.filter-tags-wrapper .selected-tags-wrapper.display {
+  display: flex;
+}
+.filter-tags-wrapper .selected-tags-wrapper .tag {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  padding: 10px 20px 10px 20px;
+  color: white;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 18px;
+  padding-left: 15px;
+}
+.filter-tags-wrapper .dropdown-menus-wrapper {
+  display: flex;
+  column-gap: 20px;
+}
+.filter-tags-wrapper .dropdown-menus-wrapper div {
   display: flex;
   align-items: center;
   height: 70px;
-  border-radius: 5px;
   width: 170px;
 }
-.filter-tags-wrapper div input {
+.filter-tags-wrapper .dropdown-menus-wrapper div input {
   width: 70%;
   background-color: transparent;
   border: none;
@@ -73,14 +99,13 @@ main {
   font-size: 18px;
   padding-left: 15px;
 }
-.filter-tags-wrapper div input::placeholder {
+.filter-tags-wrapper .dropdown-menus-wrapper div input::placeholder {
   color: white;
 }
-.filter-tags-wrapper div input:focus {
+.filter-tags-wrapper .dropdown-menus-wrapper div input:focus {
   outline: none;
 }
-.filter-tags-wrapper div i {
-  padding-right: 25px;
+.filter-tags-wrapper i {
   color: white;
 }
 .filter-tags-wrapper .ingredients {

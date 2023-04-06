@@ -62,39 +62,69 @@ main {
 
 .filter-tags-wrapper {
     display: flex;
+    flex-direction: column;
     margin-top: 20px;
-    column-gap: 20px;
+    row-gap: 15px;
 
     div {
-        display: flex;
-        align-items: center;
-        height: 70px;
         border-radius: 5px;
-        width: 170px;
+    }
 
-        input {
-            width: 70%;
-            background-color: transparent;
-            border: none;
+    .selected-tags-wrapper {
+        display: none;
+        min-height: 40px;
+        column-gap: 15px;
+
+        &.display {
+            display: flex;
+        }
+
+        .tag {
+            display: flex;
+            align-items: center;
+            column-gap: 10px;
+            padding: 10px 20px 10px 20px;
             color: white;
             font-family: 'Lato';
             font-weight: 700;
             font-size: 18px;
             padding-left: 15px;
-    
-            &::placeholder {
-                color: white;
-            }
-    
-            &:focus {
-                outline: none;
-            }
         }
+    }
 
-        i {
-            padding-right: 25px;
-            color: white;
+    .dropdown-menus-wrapper {
+        display: flex;
+        column-gap: 20px;
+        
+        div {
+            display: flex;
+            align-items: center;
+            height: 70px;
+            width: 170px;
+    
+            input {
+                width: 70%;
+                background-color: transparent;
+                border: none;
+                color: white;
+                font-family: 'Lato';
+                font-weight: 700;
+                font-size: 18px;
+                padding-left: 15px;
+        
+                &::placeholder {
+                    color: white;
+                }
+        
+                &:focus {
+                    outline: none;
+                }
+            }
         }
+    }
+
+    i {
+        color: white;
     }
 
     .ingredients {
