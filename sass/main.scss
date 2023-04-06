@@ -72,8 +72,10 @@ main {
 
     .selected-tags-wrapper {
         display: none;
+        flex-wrap: wrap;
         min-height: 40px;
         column-gap: 15px;
+        row-gap: 15px;
 
         &.display {
             display: flex;
