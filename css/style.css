@@ -63,7 +63,6 @@ main {
 .filter-tags-wrapper .selected-tags-wrapper {
   display: none;
   flex-wrap: wrap;
-  min-height: 40px;
   column-gap: 15px;
   row-gap: 15px;
 }
@@ -74,24 +73,29 @@ main {
   display: flex;
   align-items: center;
   column-gap: 10px;
-  padding: 10px 20px 10px 20px;
+  padding: 0px 20px 0px 20px;
   color: white;
   font-family: "Lato";
   font-weight: 700;
-  font-size: 18px;
-  padding-left: 15px;
+  font-size: 14px;
+  height: 40px;
 }
-.filter-tags-wrapper .dropdown-menus-wrapper {
+.filter-tags-wrapper .drop-down-menus-wrapper {
   display: flex;
   column-gap: 20px;
 }
-.filter-tags-wrapper .dropdown-menus-wrapper div {
+.filter-tags-wrapper .drop-down-menus-wrapper .drop-down-button {
+  position: relative;
+  float: left;
+}
+.filter-tags-wrapper .drop-down-menus-wrapper .drop-down-button .drop-down-header {
   display: flex;
   align-items: center;
-  height: 70px;
+  justify-content: space-between;
+  padding: 20px;
   width: 170px;
 }
-.filter-tags-wrapper .dropdown-menus-wrapper div input {
+.filter-tags-wrapper .drop-down-menus-wrapper .drop-down-button .drop-down-header input {
   width: 70%;
   background-color: transparent;
   border: none;
@@ -99,13 +103,36 @@ main {
   font-family: "Lato";
   font-weight: 700;
   font-size: 18px;
-  padding-left: 15px;
 }
-.filter-tags-wrapper .dropdown-menus-wrapper div input::placeholder {
+.filter-tags-wrapper .drop-down-menus-wrapper .drop-down-button .drop-down-header input::placeholder {
   color: white;
 }
-.filter-tags-wrapper .dropdown-menus-wrapper div input:focus {
+.filter-tags-wrapper .drop-down-menus-wrapper .drop-down-button .drop-down-header input:focus {
   outline: none;
+}
+.filter-tags-wrapper .drop-down-menus-wrapper .drop-down-button .drop-down-content {
+  display: none;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 0px 20px 20px 20px;
+  row-gap: 10px;
+  column-gap: 20px;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+.filter-tags-wrapper .drop-down-menus-wrapper .drop-down-button .drop-down-content div p {
+  color: white;
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 18px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.filter-tags-wrapper .drop-down-menus-wrapper .drop-down-button .drop-down-content.display {
+  display: grid;
+  border-radius: 0px 0px 5px 5px;
+}
+.filter-tags-wrapper .drop-down-menus-wrapper .drop-down-button ::-webkit-scrollbar {
+  display: none;
 }
 .filter-tags-wrapper i {
   color: white;
@@ -113,7 +140,7 @@ main {
 .filter-tags-wrapper .ingredients {
   background-color: #3282F7;
 }
-.filter-tags-wrapper .appliance {
+.filter-tags-wrapper .appliances {
   background-color: #68D9A4;
 }
 .filter-tags-wrapper .ustensils {
@@ -175,14 +202,14 @@ main {
 }
 .section-wrapper .article-wrapper .information-wrapper .bottom-wrapper .ingredients-list-wrapper {
   width: 50%;
-  font-family: "Roboto";
+  font-family: "Lato";
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
 }
 .section-wrapper .article-wrapper .information-wrapper .bottom-wrapper .description-wrapper {
   width: 50%;
-  font-family: "Roboto";
+  font-family: "Lato";
   font-style: normal;
   font-weight: 400;
   font-size: 12px;

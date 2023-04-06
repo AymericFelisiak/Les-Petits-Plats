@@ -60,7 +60,7 @@ export const recipes = [
         quantity: 5
       },
       {
-        ingredient: 'Lait de Coco',
+        ingredient: 'Lait de coco',
         quantity: 100,
         unit: 'ml'
       }
@@ -168,7 +168,7 @@ export const recipes = [
         unit: 'cuillères'
       },
       {
-        ingredient: 'gruyère râpé',
+        ingredient: 'Gruyère râpé',
         quantity: 100,
         unit: 'g'
       },
@@ -179,7 +179,7 @@ export const recipes = [
       }
     ],
     time: 45,
-    description: 'Étaler la pâte feuilleté aux dimensions du moule, étaler la moutarde sur la pâte feuilleté, ajouter le thon. Découper les tomates en rondelles et les poser sur le poisson, ajouter un peu de crème fraîche sur toute la tarte et recouvrez de gruyère râpé. Cuire au four 30 minutes',
+    description: 'Étaler la pâte feuilleté aux dimensions du moule, étaler la moutarde sur la pâte feuilleté, ajouter le thon. Découper les tomates en rondelles et les poser sur le poisson, ajouter un peu de crème fraîche sur toute la tarte et recouvrez de Gruyère râpé. Cuire au four 30 minutes',
     appliance: 'Four',
     ustensils: ['moule à tarte', 'râpe à fromage', 'couteau']
   },
@@ -455,7 +455,7 @@ export const recipes = [
         unit: 'cuillère à soupe'
       },
       {
-        ingredient: "huile d'olive",
+        ingredient: "Huile d'olive",
         quantity: 2,
         unit: 'cuillère à soupe'
       }
@@ -570,7 +570,7 @@ export const recipes = [
         unit: 'tiges'
       },
       {
-        ingredient: "huile d'olives",
+        ingredient: "Huile d'olives",
         quantity: 2,
         unit: 'cuillère à soupe'
       }
@@ -696,7 +696,7 @@ export const recipes = [
         unit: 'g'
       },
       {
-        ingredient: "huile d'olive",
+        ingredient: "Huile d'olive",
         quantity: 1,
         unit: 'cuillères'
       }
@@ -1122,7 +1122,7 @@ export const recipes = [
       }
     ],
     time: 20,
-    description: "Beurrer les tranches de pain, ajouter entre 2 tranches de pain de mie 1 tranche d’emmental, une de blanc de dinde, et une autre d'emmental. Dans un récipient, mélanger le gruyère rappé avec le lait et la noix de muscade. Mettre sur les croque monsieur. Placer au four durant 10 minutes.",
+    description: "Beurrer les tranches de pain, ajouter entre 2 tranches de pain de mie 1 tranche d’emmental, une de blanc de dinde, et une autre d'emmental. Dans un récipient, mélanger le Gruyère rappé avec le lait et la noix de muscade. Mettre sur les croque monsieur. Placer au four durant 10 minutes.",
     appliance: 'Four',
     ustensils: ['râpe à fromage', 'cuillère à Soupe', 'couteau']
   },
@@ -1263,7 +1263,7 @@ export const recipes = [
       }
     ],
     time: 35,
-    description: 'Raper les courgette et les faire revenir durant 15 minutes. Ajouter les fromages de chèvre frais. Préparer la béchamel avec le lait et la maïzena. Salez poivrez, ajouter de la noix de muscade selon les gouts. Dans un plat, mettre un peu de sauces au fond, puis des lasagnes, puis des courgettes etc... terminer par de la sauces et ajouter le gruyère. Passer au four à 180° durant 20 à 25 minutes.',
+    description: 'Raper les courgette et les faire revenir durant 15 minutes. Ajouter les fromages de chèvre frais. Préparer la béchamel avec le lait et la maïzena. Salez poivrez, ajouter de la noix de muscade selon les gouts. Dans un plat, mettre un peu de sauces au fond, puis des lasagnes, puis des courgettes etc... terminer par de la sauces et ajouter le Gruyère. Passer au four à 180° durant 20 à 25 minutes.',
     appliance: 'Four',
     ustensils: ['plat à gratin', 'râpe à fromage', 'fouet']
   },
@@ -1510,7 +1510,7 @@ export const recipes = [
         unit: 'g'
       },
       {
-        ingredient: 'farine',
+        ingredient: 'Farine',
         quantity: 40,
         unit: 'g'
       }
@@ -1652,7 +1652,7 @@ export const recipes = [
       }
     ],
     time: 40,
-    description: 'Étaler la pate a pizza. Écraser les tomates pelées, les étaler sur la pâte, ajouter les lardons et les champignons. Ajouter le gruyère eet passer au four à 220° durant 20 minutes',
+    description: 'Étaler la pate a pizza. Écraser les tomates pelées, les étaler sur la pâte, ajouter les lardons et les champignons. Ajouter le Gruyère eet passer au four à 220° durant 20 minutes',
     appliance: 'Four',
     ustensils: ['rouleau à patisserie', 'râpe à fromage', 'couteau']
   },
