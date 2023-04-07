@@ -37,6 +37,10 @@ function searchEvent() {
             removeKeyWords();
             searched(newList);
         }
+        else {
+            removeDishes();
+            removeKeyWords();
+        }
     }
     else if(search){
         removeDishes();
