@@ -7,7 +7,7 @@ export function dropDownFactory(data) {
         const dropDownGrid = ingredients.querySelector('.drop-down-content');
 
         const div = document.createElement('div');
-        div.setAttribute('class', 'selectable-tag');
+        div.setAttribute('class', 'keyword');
 
         const p = document.createElement('p');
         p.textContent = data;
@@ -22,7 +22,7 @@ export function dropDownFactory(data) {
         const dropDownGrid = applicances.querySelector('.drop-down-content');
 
         const div = document.createElement('div');
-        div.setAttribute('class', 'selectable-tag');
+        div.setAttribute('class', 'keyword');
 
         const p = document.createElement('p');
         p.textContent = data;
@@ -37,7 +37,7 @@ export function dropDownFactory(data) {
         const dropDownGrid = ustensils.querySelector('.drop-down-content');
 
         const div = document.createElement('div');
-        div.setAttribute('class', 'selectable-tag');
+        div.setAttribute('class', 'keyword');
 
         const p = document.createElement('p');
         p.textContent = data;
