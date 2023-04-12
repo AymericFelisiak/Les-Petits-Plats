@@ -74,21 +74,16 @@ div {
 }
 
 .filter-tags-wrapper {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  margin-bottom: 15px;
-}
-.filter-tags-wrapper .selected-tags-wrapper {
   display: none;
-  flex-wrap: wrap;
+  margin-top: 20px;
   column-gap: 15px;
   row-gap: 15px;
+  flex-wrap: wrap;
 }
-.filter-tags-wrapper .selected-tags-wrapper.display {
+.filter-tags-wrapper.display {
   display: flex;
 }
-.filter-tags-wrapper .selected-tags-wrapper .tag {
+.filter-tags-wrapper .tag {
   display: flex;
   align-items: center;
   column-gap: 10px;
@@ -99,11 +94,15 @@ div {
   font-size: 14px;
   height: 40px;
 }
+.filter-tags-wrapper i {
+  cursor: pointer;
+}
 
 .drop-down-menus-wrapper {
   display: flex;
   column-gap: 20px;
   max-height: 70px;
+  margin-top: 15px;
 }
 .drop-down-menus-wrapper .drop-down-button {
   position: relative;

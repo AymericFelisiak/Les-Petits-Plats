@@ -1,3 +1,5 @@
+import { tagFactory } from "./tag-factory.js";
+
 let opened = false;
 
 // Creates events for the dropdown menus
@@ -61,4 +63,28 @@ function getType(attribute) {
         }
     });
     return type;
+}
+
+export function keywordHandler() {
+    const filterTagsWrapper = document.querySelector('.filter-tags-wrapper');
+    const parentAttribute = this.parentElement.getAttribute('class').split(' ');
+    const type = parentAttribute[1];
+    if(!filterTagsWrapper.hasChildNodes()) {
+        filterTagsWrapper.setAttribute('class', 'filter-tags-wrapper display');
+    }
+    const keywordName = this.querySelector('p').textContent;
+    const tagFactoryModel = tagFactory(keywordName, type);
+    const tag = tagFactoryModel.getTag();
+    filterTagsWrapper.appendChild(tag);
+}
+
+export function removeTagHandler() {
+    const filterTagsWrapper = document.querySelector('.filter-tags-wrapper');
+    const parent = this.parentElement;
+
+    filterTagsWrapper.removeChild(parent);
+
+    if(!filterTagsWrapper.hasChildNodes()) {
+        filterTagsWrapper.setAttribute('class', 'filter-tags-wrapper');
+    }
 }
