@@ -7,6 +7,7 @@ import { addSearchListeners } from "./search.js";
 let ingredientsList;
 let appliancesList;
 let ustensilsList;
+export let tagList = [];
 
 export function removeKeyWords() {
     const nodeList = document.querySelectorAll('.drop-down-content');

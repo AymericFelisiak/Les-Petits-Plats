@@ -1,4 +1,5 @@
 import { tagFactory } from "./tag-factory.js";
+import { tagExists, pushToTagList, removeFromTagList } from "./utils.js";
 
 let opened = false;
 
@@ -65,25 +66,41 @@ function getType(attribute) {
     return type;
 }
 
+// Function handling click on keyword, adds tag
 export function keywordHandler() {
     const filterTagsWrapper = document.querySelector('.filter-tags-wrapper');
     const parentAttribute = this.parentElement.getAttribute('class').split(' ');
     const type = parentAttribute[1];
-    if(!filterTagsWrapper.hasChildNodes()) {
-        filterTagsWrapper.setAttribute('class', 'filter-tags-wrapper display');
-    }
+
     const keywordName = this.querySelector('p').textContent;
-    const tagFactoryModel = tagFactory(keywordName, type);
-    const tag = tagFactoryModel.getTag();
-    filterTagsWrapper.appendChild(tag);
+
+    if(!tagExists(keywordName, type)) {
+        pushToTagList(keywordName, type);
+
+        // Display wrapper if div doesn't have children
+        if(!filterTagsWrapper.hasChildNodes()) {
+            filterTagsWrapper.setAttribute('class', 'filter-tags-wrapper display');
+        }
+
+        const tagFactoryModel = tagFactory(keywordName, type);
+        const tag = tagFactoryModel.getTag();
+        filterTagsWrapper.appendChild(tag);
+    }
 }
 
+// Function handling click on xmark to remove a tag
 export function removeTagHandler() {
     const filterTagsWrapper = document.querySelector('.filter-tags-wrapper');
     const parent = this.parentElement;
+    const name = parent.querySelector('p').textContent;
+    const attribute = parent.getAttribute('class').split(' ');
+    const type = attribute[1];
 
     filterTagsWrapper.removeChild(parent);
+    
+    removeFromTagList(name, type);
 
+    // Hide wrapper if div is empty
     if(!filterTagsWrapper.hasChildNodes()) {
         filterTagsWrapper.setAttribute('class', 'filter-tags-wrapper');
     }
