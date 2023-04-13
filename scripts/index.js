@@ -2,12 +2,11 @@ import { recipes } from "../data/recipes.js";
 import { dishFactory } from "./dish-factory.js";
 import { dropDownFactory } from "./dropdown-factory.js";
 import { addDropDownEventListener } from "./event-listeners.js";
-import { addSearchListeners } from "./search.js";
+import { addSearchListeners } from "./search-v1.js";
 
 export let ingredientsSet;
 export let appliancesSet;
 export let ustentilsSet;
-export const tagList = [];
 
 export function removeDishes() {
     const sectionWrapper = document.querySelector('.section-wrapper');

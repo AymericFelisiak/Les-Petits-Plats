@@ -1,4 +1,4 @@
-import { tagList } from "./index.js";
+import { tagList } from "./search-v1.js";
 import { dropDownFactory } from "./dropdown-factory.js";
 
 export function tagExists(name, type) {
@@ -13,7 +13,7 @@ export function tagExists(name, type) {
     return false;
 }
 
-export function removeFromTagList(name, type) {
+export function removeTagFromList(name, type) {
     const length = tagList.length;
     for(let i = 0; i < length; i++) {
         if(tagList[i].name === name && tagList[i].type === type) {
@@ -24,10 +24,9 @@ export function removeFromTagList(name, type) {
 }
 
 export function pushToTagList(name, type) {
-    tagList.push({
-        name: name,
-        type: type
-    });
+    const tag = {name: name, type: type};
+    tagList.push(tag);
+    return tag;
 }
 
 export function compareEntries(data1, data2) {
