@@ -4,15 +4,10 @@ import { dropDownFactory } from "./dropdown-factory.js";
 import { addDropDownEventListener } from "./event-listeners.js";
 import { addSearchListeners } from "./search.js";
 
-let ingredientsList;
-let appliancesList;
-let ustensilsList;
-export let tagList = [];
-
-export function removeKeyWords() {
-    const nodeList = document.querySelectorAll('.drop-down-content');
-    nodeList.forEach(node => node.innerHTML = '');
-}
+export let ingredientsSet;
+export let appliancesSet;
+export let ustentilsSet;
+export const tagList = [];
 
 export function removeDishes() {
     const sectionWrapper = document.querySelector('.section-wrapper');
@@ -45,21 +40,21 @@ export function searched(newRecipes) {
         recipe.ustensils.forEach(ustensil => tempUstensilList.push(ustensil));
     });
 
-    ingredientsList = [... new Set(tempIngredientsList)];
-    appliancesList = [... new Set(tempApplianceList)];
-    ustensilsList = [... new Set(tempUstensilList)];
+    ingredientsSet = [... new Set(tempIngredientsList)];
+    appliancesSet = [... new Set(tempApplianceList)];
+    ustentilsSet = [... new Set(tempUstensilList)];
 
-    ingredientsList.forEach(ingredient => {
+    ingredientsSet.forEach(ingredient => {
         const dropDownModel = dropDownFactory(ingredient);
         dropDownModel.addIngredient();
     });
 
-    appliancesList.forEach(appliance => {
+    appliancesSet.forEach(appliance => {
         const dropDownModel = dropDownFactory(appliance);
         dropDownModel.addAppliance();
     });
 
-    ustensilsList.forEach(ustensil => {
+    ustentilsSet.forEach(ustensil => {
         const dropDownModel = dropDownFactory(ustensil);
         dropDownModel.addUstensil();
     });
@@ -88,21 +83,21 @@ export function init() {
         recipe.ustensils.forEach(ustensil => tempUstensilList.push(ustensil));
     });
 
-    ingredientsList = [... new Set(tempIngredientsList)];
-    appliancesList = [... new Set(tempApplianceList)];
-    ustensilsList = [... new Set(tempUstensilList)];
+    ingredientsSet = [... new Set(tempIngredientsList)];
+    appliancesSet = [... new Set(tempApplianceList)];
+    ustentilsSet = [... new Set(tempUstensilList)];
 
-    ingredientsList.forEach(ingredient => {
+    ingredientsSet.forEach(ingredient => {
         const dropDownModel = dropDownFactory(ingredient);
         dropDownModel.addIngredient();
     });
 
-    appliancesList.forEach(appliance => {
+    appliancesSet.forEach(appliance => {
         const dropDownModel = dropDownFactory(appliance);
         dropDownModel.addAppliance();
     });
 
-    ustensilsList.forEach(ustensil => {
+    ustentilsSet.forEach(ustensil => {
         const dropDownModel = dropDownFactory(ustensil);
         dropDownModel.addUstensil();
     });

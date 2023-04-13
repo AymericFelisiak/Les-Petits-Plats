@@ -2,7 +2,8 @@ import { recipes } from "../data/recipes.js";
 import { removeDishes } from "./index.js";
 import { init } from "./index.js";
 import { searched } from "./index.js";
-import { removeKeyWords } from "./index.js";
+import { removeKeywordsDOM } from "./utils.js";
+import { compareEntries } from "./utils.js";
 
 let search;
 
@@ -16,15 +17,15 @@ function searchEvent() {
         search = true;
         const newList = [];
         recipes.forEach(recipe => {
-            if(compare(recipe.name, this.value)) {
+            if(compareEntries(recipe.name, this.value)) {
                 newList.push(recipe);
             }
-            else if(compare(recipe.description, this.value)) {
+            else if(compareEntries(recipe.description, this.value)) {
                 newList.push(recipe);
             }
             else {
                 recipe.ingredients.every(ingredient => {
-                    if(compare(ingredient.ingredient, this.value)) {
+                    if(compareEntries(ingredient.ingredient, this.value)) {
                         newList.push(recipe);
                         return;
                     }
@@ -34,25 +35,18 @@ function searchEvent() {
 
         if(newList.length > 0) {
             removeDishes();
-            removeKeyWords();
+            removeKeywordsDOM();
             searched(newList);
         }
         else {
             removeDishes();
-            removeKeyWords();
+            removeKeywordsDOM();
         }
     }
     else if(search){
         removeDishes();
-        removeKeyWords();
+        removeKeywordsDOM();
         init();
         search = false;
     }
-}
-
-function compare(data1, data2) {
-    if(data1.toLowerCase().includes(data2.toLowerCase())) {
-        return true;
-    }
-    return false;
 }
