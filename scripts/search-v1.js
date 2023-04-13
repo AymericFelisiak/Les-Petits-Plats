@@ -2,7 +2,7 @@ import { recipes } from "../data/recipes.js";
 import { removeDishes } from "./index.js";
 import { init } from "./index.js";
 import { searched } from "./index.js";
-import { removeKeywordsDOM } from "./utils.js";
+import { removeAllKeyWords } from "./utils.js";
 import { compareEntries } from "./utils.js";
 
 // First version of search algorithm. Supposedly the slowest
@@ -101,14 +101,14 @@ export function searchBarEvent() {
             // No tags, then just display the list
             else {
                 removeDishes();
-                removeKeywordsDOM();
+                removeAllKeyWords();
                 searched(newRecipeList);
             }
         }
         // No items in list, the dish researched doesn't exist
         else {
             removeDishes();
-            removeKeywordsDOM();
+            removeAllKeyWords();
         }
         searchLength = currentSearchLength;
     }
@@ -124,7 +124,7 @@ export function searchBarEvent() {
         // If there aren't any tags, display default page (original list)
         else {
             removeDishes();
-            removeKeywordsDOM();
+            removeAllKeyWords();
             init();
         }
     }
@@ -177,7 +177,7 @@ export function tagSearch(tag) {
         });
     }
     removeDishes();
-    removeKeywordsDOM();
+    removeAllKeyWords();
     searched(newRecipeList);
 }
 

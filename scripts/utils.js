@@ -36,8 +36,13 @@ export function compareEntries(data1, data2) {
     return false;
 }
 
-export function removeKeywordsDOM() {
+export function removeAllKeyWords() {
     const nodeList = document.querySelectorAll('.drop-down-content');
+    nodeList.forEach(node => node.innerHTML = '');
+}
+
+export function removeKeywordsFromNode(node) {
+    const nodeList = node.querySelectorAll('.drop-down-content');
     nodeList.forEach(node => node.innerHTML = '');
 }
 

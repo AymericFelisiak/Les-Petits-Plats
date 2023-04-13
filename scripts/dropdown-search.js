@@ -1,5 +1,5 @@
 import { ingredientsSet, appliancesSet, ustentilsSet } from "./index.js";
-import { compareEntries, removeKeywordsDOM, tagExists, newIngredientsKeywords, newAppliancesKeywords, newUstensilsKeywords } from "./utils.js";
+import { compareEntries, removeKeywordsFromNode, tagExists, newIngredientsKeywords, newAppliancesKeywords, newUstensilsKeywords } from "./utils.js";
 
 let ingredientsList = [];
 let appliancesList = [];
@@ -14,12 +14,12 @@ export function ingredientSearch() {
             }
         });
         if(ingredientsList.length > 0) {
-            removeKeywordsDOM();
+            removeKeywordsFromNode(this.parentElement.parentElement);
             newIngredientsKeywords(ingredientsList);
         }
     }
     else {
-        removeKeywordsDOM();
+        removeKeywordsFromNode(this.parentElement.parentElement);
         newIngredientsKeywords(ingredientsSet);
     }
 }
@@ -33,12 +33,12 @@ export function applianceSearch() {
             }
         });
         if(appliancesList.length > 0) {
-            removeKeywordsDOM();
+            removeKeywordsFromNode(this.parentElement.parentElement);
             newAppliancesKeywords(appliancesList);
         }
     }
     else {
-        removeKeywordsDOM();
+        removeKeywordsFromNode(this.parentElement.parentElement);
         newAppliancesKeywords(appliancesSet);
     }
 }
@@ -52,12 +52,12 @@ export function ustensilSearch() {
             }
         });
         if(appliancesList.length > 0) {
-            removeKeywordsDOM();
+            removeKeywordsFromNode(this.parentElement.parentElement);
             newUstensilsKeywords(ustensilsList);
         }
     }
     else {
-        removeKeywordsDOM();
+        removeKeywordsFromNode(this.parentElement.parentElement);
         newUstensilsKeywords(ustentilsSet);
     }
 }
