@@ -1,6 +1,6 @@
 import { tagFactory } from "./tag-factory.js";
 import { tagExists, pushToTagList, removeTagFromList } from "./utils.js";
-import { tagSearch, refreshSearchAfterTagRemoved } from "./search-v1.js";
+import { tagSearch, searchBarEvent } from "./search-v1.js";
 
 let opened = false;
 
@@ -101,7 +101,7 @@ export function removeTagHandler() {
     filterTagsWrapper.removeChild(parent);
     
     removeTagFromList(name, type);
-    refreshSearchAfterTagRemoved();
+    searchBarEvent();
 
     // Hide wrapper if div is empty
     if(!filterTagsWrapper.hasChildNodes()) {

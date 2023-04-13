@@ -18,7 +18,7 @@ export function addSearchListeners() {
 }
 
 // Handler when user starts searching with searchbar
-function searchBarEvent() {
+export function searchBarEvent() {
 
     const searchBarValue = document.querySelector('#searchbar').value;
     const currentSearchLength = searchBarValue.length;
@@ -179,27 +179,6 @@ export function tagSearch(tag) {
     removeDishes();
     removeKeywordsDOM();
     searched(newRecipeList);
-}
-
-// Rebuilds a new list of dish when a tag is removed by the user
-export function refreshSearchAfterTagRemoved() {
-    // If tags in list
-    if(tagList.length > 0) {
-        tagList.forEach(tag => tagSearch(tag));
-    }
-    // If no tags in list
-    else {
-        // If there are words in searchbar
-        if(searchLength > 0) {
-            searchBarEvent();
-        } 
-        // If searchbar is empty, default
-        else {
-            removeDishes();
-            removeKeywordsDOM();
-            init();
-        }
-    }
 }
 
 // Return true if the recipe uses the ingredient from the tag
