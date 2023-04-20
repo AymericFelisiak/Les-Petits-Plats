@@ -1,4 +1,4 @@
-import { tagList } from "./index.js";
+import { tagList } from "./search-v2.js";
 import { dropDownFactory } from "./dropdown-factory.js";
 
 export function tagExists(name, type) {
@@ -23,23 +23,52 @@ export function removeFromTagList(name, type) {
     }
 }
 
-export function pushToTagList(name, type) {
-    tagList.push({
-        name: name,
-        type: type
-    });
+export function addToTagList(name, type) {
+    const tag = {name: name, type: type};
+    tagList.push(tag);
 }
 
 export function compareEntries(data1, data2) {
-    if(data1.toLowerCase().includes(data2.toLowerCase())) {
+    data1 = data1.toLowerCase();
+    data2 = data2.toLowerCase();
+    if(data1.includes(data2)) {
         return true;
     }
     return false;
 }
 
-export function removeKeywordsDOM() {
+export function test(name, description, ingredients, searchValue) {
+    name = name.toLowerCase();
+    description = description.toLowerCase();
+    ingredients = ingredients.toLowerCase();
+    searchValue = searchValue.toLowerCase();
+    if(name.includes(searchValue) 
+        || description.includes(searchValue) 
+        || ingredients.includes(searchValue)) {
+            return true;
+    }
+    return false;
+}
+
+export function removeAllKeyWords() {
     const nodeList = document.querySelectorAll('.drop-down-content');
     nodeList.forEach(node => node.innerHTML = '');
+}
+
+export function removeIngredientsKeywords() {
+    const ingredientsDropDown = document.querySelector('.drop-down-content.ingredients');
+    console.log(ingredientsDropDown);
+    ingredientsDropDown.innerHTML = '';
+}
+
+export function removeAppliancesKeywords() {
+    const ingredientsDropDown = document.querySelector('.drop-down-content.appliances');
+    ingredientsDropDown.innerHTML = '';
+}
+
+export function removeUstensilsKeywords() {
+    const ingredientsDropDown = document.querySelector('.drop-down-content.ustensils');
+    ingredientsDropDown.innerHTML = '';
 }
 
 export function newIngredientsKeywords(list) {

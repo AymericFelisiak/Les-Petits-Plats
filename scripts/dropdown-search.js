@@ -1,5 +1,5 @@
 import { ingredientsSet, appliancesSet, ustentilsSet } from "./index.js";
-import { compareEntries, removeKeywordsDOM, tagExists, newIngredientsKeywords, newAppliancesKeywords, newUstensilsKeywords } from "./utils.js";
+import { compareEntries , tagExists, newIngredientsKeywords, newAppliancesKeywords, newUstensilsKeywords , removeIngredientsKeywords, removeAppliancesKeywords, removeUstensilsKeywords} from "./utils.js";
 
 let ingredientsList = [];
 let appliancesList = [];
@@ -14,12 +14,12 @@ export function ingredientSearch() {
             }
         });
         if(ingredientsList.length > 0) {
-            removeKeywordsDOM();
+            removeIngredientsKeywords();
             newIngredientsKeywords(ingredientsList);
         }
     }
     else {
-        removeKeywordsDOM();
+        removeIngredientsKeywords();
         newIngredientsKeywords(ingredientsSet);
     }
 }
@@ -33,12 +33,12 @@ export function applianceSearch() {
             }
         });
         if(appliancesList.length > 0) {
-            removeKeywordsDOM();
+            removeAppliancesKeywords();
             newAppliancesKeywords(appliancesList);
         }
     }
     else {
-        removeKeywordsDOM();
+        removeAppliancesKeywords();
         newAppliancesKeywords(appliancesSet);
     }
 }
@@ -52,12 +52,12 @@ export function ustensilSearch() {
             }
         });
         if(appliancesList.length > 0) {
-            removeKeywordsDOM();
+            removeUstensilsKeywords();
             newUstensilsKeywords(ustensilsList);
         }
     }
     else {
-        removeKeywordsDOM();
+        removeUstensilsKeywords();
         newUstensilsKeywords(ustentilsSet);
     }
 }
