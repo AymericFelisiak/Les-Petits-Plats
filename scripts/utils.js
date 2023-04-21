@@ -53,11 +53,6 @@ export function removeAllKeyWords() {
     nodeList.forEach(node => node.innerHTML = '');
 }
 
-export function removeKeywordsFromNode(node) {
-    const nodeList = node.querySelectorAll('.drop-down-content');
-    nodeList.forEach(node => node.innerHTML = '');
-}
-
 export function removeIngredientsKeywordsDOM() {
     const dropDownContent = document.querySelectorAll('.drop-down-content.ingredients');
     dropDownContent.forEach(node => node.innerHTML = '');
