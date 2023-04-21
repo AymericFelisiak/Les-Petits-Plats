@@ -17,6 +17,7 @@ export function ingredientSearch() {
             removeIngredientsKeywordsDOM();
             newIngredientsKeywords(ingredientsList);
         }
+        else removeIngredientsKeywordsDOM();
     }
     else {
         removeIngredientsKeywordsDOM();
@@ -36,6 +37,7 @@ export function applianceSearch() {
             removeAppliancesKeywordsDOM();
             newAppliancesKeywords(appliancesList);
         }
+        else removeAppliancesKeywordsDOM();
     }
     else {
         removeAppliancesKeywordsDOM();
@@ -55,6 +57,7 @@ export function ustensilSearch() {
             removeUstensilsKeywordsDOM();
             newUstensilsKeywords(ustensilsList);
         }
+        else removeUstensilsKeywordsDOM();
     }
     else {
         removeUstensilsKeywordsDOM();
