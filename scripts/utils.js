@@ -29,7 +29,9 @@ export function pushToTagList(name, type) {
 }
 
 export function compareEntries(data1, data2) {
-    if(data1.toLowerCase().includes(data2.toLowerCase())) {
+    data1 = data1.toLowerCase();
+    data2 = data2.toLowerCase();
+    if(data1.includes(data2)) {
         return true;
     }
     return false;
