@@ -72,7 +72,7 @@ function searchFromBar(recipeList, searchValue) {
 function tagFiltering(recipeList) {
     let tempRecipeList = [];
     recipeList.forEach(recipe => {
-        if(searchRecipesWithTag(recipe)) {
+        if(tagsExist(recipe)) {
             tempRecipeList.push(recipe);
         }
     });
@@ -80,7 +80,7 @@ function tagFiltering(recipeList) {
 }
 
 // Return true if recipes matches with all the selected tags
-function searchRecipesWithTag(recipe) {
+function tagsExist(recipe) {
     let ok = 0;
     tagList.forEach(tag => {
         const value = getRecipeValueFromTagType(recipe, tag.type);
