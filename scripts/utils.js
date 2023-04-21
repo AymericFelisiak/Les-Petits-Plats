@@ -26,12 +26,24 @@ export function removeTagFromList(name, type) {
 export function pushToTagList(name, type) {
     const tag = {name: name, type: type};
     tagList.push(tag);
-    return tag;
 }
 
 export function compareEntries(data1, data2) {
     if(data1.toLowerCase().includes(data2.toLowerCase())) {
         return true;
+    }
+    return false;
+}
+
+export function compareRecipeToSearch(name, description, ingredients, searchValue) {
+    name = name.toLowerCase();
+    description = description.toLowerCase();
+    ingredients = ingredients.toLowerCase();
+    searchValue = searchValue.toLowerCase();
+    if(name.includes(searchValue) 
+        || description.includes(searchValue) 
+        || ingredients.includes(searchValue)) {
+            return true;
     }
     return false;
 }
@@ -44,6 +56,21 @@ export function removeAllKeyWords() {
 export function removeKeywordsFromNode(node) {
     const nodeList = node.querySelectorAll('.drop-down-content');
     nodeList.forEach(node => node.innerHTML = '');
+}
+
+export function removeIngredientsKeywordsDOM() {
+    const dropDownContent = document.querySelectorAll('.drop-down-content.ingredients');
+    dropDownContent.forEach(node => node.innerHTML = '');
+}
+
+export function removeAppliancesKeywordsDOM() {
+    const dropDownContent = document.querySelectorAll('.drop-down-content.appliances');
+    dropDownContent.forEach(node => node.innerHTML = '');
+}
+
+export function removeUstensilsKeywordsDOM() {
+    const dropDownContent = document.querySelectorAll('.drop-down-content.ustensils');
+    dropDownContent.forEach(node => node.innerHTML = '');
 }
 
 export function newIngredientsKeywords(list) {

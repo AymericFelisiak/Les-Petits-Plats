@@ -1,6 +1,6 @@
 import { tagFactory } from "./tag-factory.js";
 import { tagExists, pushToTagList, removeTagFromList } from "./utils.js";
-import { tagSearch, searchBarEvent } from "./search-v1.js";
+import { search } from "./search-v1.js";
 
 let opened = false;
 
@@ -76,7 +76,7 @@ export function keywordHandler() {
     const keywordName = this.querySelector('p').textContent;
 
     if(!tagExists(keywordName, type)) {
-        const tag = pushToTagList(keywordName, type);
+        pushToTagList(keywordName, type);
 
         // Display wrapper if div doesn't have children
         if(!filterTagsWrapper.hasChildNodes()) {
@@ -86,7 +86,7 @@ export function keywordHandler() {
         const tagFactoryModel = tagFactory(keywordName, type);
         const tagDOM = tagFactoryModel.getTag();
         filterTagsWrapper.appendChild(tagDOM);
-        tagSearch(tag);
+        search();
     }
 }
 
@@ -101,7 +101,7 @@ export function removeTagHandler() {
     filterTagsWrapper.removeChild(parent);
     
     removeTagFromList(name, type);
-    searchBarEvent();
+    search();
 
     // Hide wrapper if div is empty
     if(!filterTagsWrapper.hasChildNodes()) {

@@ -3,7 +3,7 @@ import { removeDishes } from "./index.js";
 import { init } from "./index.js";
 import { searched } from "./index.js";
 import { removeAllKeyWords } from "./utils.js";
-import { compareEntries } from "./utils.js";
+import { compareEntries, compareRecipeToSearch } from "./utils.js";
 
 // First version of search algorithm. Supposedly the slowest
 
@@ -14,197 +14,100 @@ export const tagList = [];
 // Adds listener to search bar
 export function addSearchListeners() {
     const searchBar = document.querySelector('#searchbar');
-    searchBar.addEventListener('input', searchBarEvent);
+    searchBar.addEventListener('input', search);
 }
 
-// Handler when user starts searching with searchbar
-export function searchBarEvent() {
+// Search function for tags and searchbar
+export function search() {
+    const searchBar = document.querySelector('#searchbar');
+    const currentSearchLength = searchBar.value.length;
 
-    const searchBarValue = document.querySelector('#searchbar').value;
-    const currentSearchLength = searchBarValue.length;
+    // If more than 2 letters in search bar
+    if(currentSearchLength > 2) {
+        // If newRecipeList isn't empty and current search has more letter than previous then search the current list
+        if(newRecipeList.length > 0 && currentSearchLength > searchLength) {
+            searchFromBar(newRecipeList, searchBar.value);
+        }   // If user removes letter then search from default list
+        else searchFromBar(recipes, searchBar.value);
 
-    // If the user entered 3 or more letters
-    if(currentSearchLength >= 3) {
-
-        // If there wasn't any search before, searches in the original recipe list
-        if(searchLength == 0 && tagList.length == 0) {
-            recipes.forEach(recipe => {
-                if(compareEntries(recipe.name, searchBarValue)) {
-                    newRecipeList.push(recipe);
-                }
-                else if(compareEntries(recipe.description, searchBarValue)) {
-                    newRecipeList.push(recipe);
-                }
-                else {
-                    recipe.ingredients.every(ingredient => {
-                        if(compareEntries(ingredient.ingredient, searchBarValue)) {
-                            newRecipeList.push(recipe);
-                            return;
-                        }
-                    });
-                }
-            });
+        // If tags were selected, filters the search
+        if(tagList.length > 0) {
+            tagFiltering(newRecipeList);
         }
-
-        // If there was a search before, will search in the current list
-        else {
-
-            // If there are more letters than previous research
-            if(currentSearchLength > searchLength) {
-                let tempRecipeList = [];
-                newRecipeList.forEach(recipe => {
-                    if(compareEntries(recipe.name, searchBarValue)) {
-                        tempRecipeList.push(recipe);
-                    }
-                    else if(compareEntries(recipe.description, searchBarValue)) {
-                        tempRecipeList.push(recipe);
-                    }
-                    else {
-                        recipe.ingredients.every(ingredient => {
-                            if(compareEntries(ingredient.ingredient, searchBarValue)) {
-                                newRecipeList.push(recipe);
-                                return;
-                            }
-                        });
-                    }
-                });
-                newRecipeList = tempRecipeList;
-            }
-            // If there are less letters than previous research
-            else {
-                newRecipeList = [];
-                recipes.forEach(recipe => {
-                    if(compareEntries(recipe.name, searchBarValue)) {
-                        newRecipeList.push(recipe);
-                    }
-                    else if(compareEntries(recipe.description, searchBarValue)) {
-                        newRecipeList.push(recipe);
-                    }
-                    else {
-                        recipe.ingredients.every(ingredient => {
-                            if(compareEntries(ingredient.ingredient, searchBarValue)) {
-                                newRecipeList.push(recipe);
-                                return;
-                            }
-                        });
-                    }
-                });
-            }
-        }
-
-        // If there results from previous search
-        if(newRecipeList.length > 0) {
-            // If there are tags, will search in the new list while filtering with tags
-            if(tagList.length > 0) {
-                tagList.forEach(tag => tagSearch(tag));
-            }
-            // No tags, then just display the list
-            else {
-                removeDishes();
-                removeAllKeyWords();
-                searched(newRecipeList);
-            }
-        }
-        // No items in list, the dish researched doesn't exist
-        else {
-            removeDishes();
-            removeAllKeyWords();
-        }
+        searched(newRecipeList);
         searchLength = currentSearchLength;
     }
-    // If there are less than 3 letters in searchbar
+
+    // If less than 3 letters
     else {
-        // Resets list and search length
-        newRecipeList = [];
-        searchLength = 0;
-        // If there are tags, will filter original list with tags
-        if(tagList.length > 0) {
-            tagList.forEach(tag => tagSearch(tag));
+        // If tags were selected, filters the default list to search from tags
+        if (tagList.length > 0) {
+            tagFiltering(recipes);
+            searched(newRecipeList);
         }
-        // If there aren't any tags, display default page (original list)
+        // If nothing is selected and there's no search, resets to default page
         else {
+            newRecipeList = [];
             removeDishes();
             removeAllKeyWords();
             init();
         }
+        searchLength = 0;
     }
 }
 
-// Handler when a tag is added and when the user is using the searchbar
-export function tagSearch(tag) {
-
-    // If the list isn't empty (meaning a search was already ongoing)
-    if(newRecipeList.length > 0) {
-        let tempRecipeList = [];
-        newRecipeList.forEach(recipe => {
-            if(tag.type === 'ingredients') {
-                if(ingredientTagSearch(recipe, tag)) {
-                    tempRecipeList.push(recipe);
-                }
-            }
-            else if(tag.type === 'appliances') {
-                if(applianceTagSearch(recipe, tag)) {
-                    tempRecipeList.push(recipe);
-                }
-            }
-            else if(tag.type === 'ustensils') {
-                if(ustensilTagSearch(recipe, tag)) {
-                    tempRecipeList.push(recipe);
-                }
-            }
-        });
-        newRecipeList = tempRecipeList;
-    }
-    // If there wasn't any search
-    else {
-        newRecipeList = [];
-        recipes.forEach(recipe => {
-            if(tag.type === 'ingredients') {
-                if(ingredientTagSearch(recipe, tag)) {
-                    newRecipeList.push(recipe);
-                }
-            }
-            else if(tag.type === 'appliances') {
-                if(applianceTagSearch(recipe, tag)) {
-                    newRecipeList.push(recipe);
-                }
-            }
-            else if(tag.type === 'ustensils') {
-                if(ustensilTagSearch(recipe, tag)) {
-                    newRecipeList.push(recipe);
-                }
-            }
-        });
-    }
-    removeDishes();
-    removeAllKeyWords();
-    searched(newRecipeList);
-}
-
-// Return true if the recipe uses the ingredient from the tag
-function ingredientTagSearch(recipe, tag) {
-    for(const ingredient of recipe.ingredients) {
-        if(compareEntries(ingredient.ingredient, tag.name)) {
-            return true;
+// Function populating the new list of recipes from user input through searchbar
+function searchFromBar(recipeList, searchValue) {
+    let tempRecipeList = [];
+    recipeList.forEach(recipe => {
+        const joinedIngredients = recipe.ingredients.map(elm => elm.ingredient).join(',');
+        if(compareRecipeToSearch(recipe.name, recipe.description, joinedIngredients, searchValue)) {
+            tempRecipeList.push(recipe);
         }
-    }
-    return false;
+    })
+    newRecipeList = tempRecipeList;
+} 
+
+// Function populating the new list of recipes from user selected tags
+function tagFiltering(recipeList) {
+    let tempRecipeList = [];
+    recipeList.forEach(recipe => {
+        if(searchRecipesWithTag(recipe)) {
+            tempRecipeList.push(recipe);
+        }
+    });
+    newRecipeList = tempRecipeList;
 }
 
-// Return true if the recipe uses the appliance from the tag
-function applianceTagSearch(recipe, tag) {
-    if(compareEntries(recipe.appliance, tag.name)) {
+// Return true if recipes matches with all the selected tags
+function searchRecipesWithTag(recipe) {
+    let ok = 0;
+    tagList.forEach(tag => {
+        const value = getRecipeValueFromTagType(recipe, tag.type);
+        if(compareEntries(value, tag.name)) {
+            ok++;
+        }
+    });
+    if(ok == tagList.length) {
         return true;
     }
     return false;
 }
 
-// Return true if the recipe uses the ustensil from the tag
-function ustensilTagSearch(recipe, tag) {
-    for(const ustensil of recipe.ustensils) {
-        if(compareEntries(ustensil, tag.name)) {
-            return true;
-        }
+// Returns string value of the recipe matching the tag type
+function getRecipeValueFromTagType(recipe, tagType) {
+    let value;
+    if(tagType == 'ingredients') {
+        value = recipe.ingredients.map(ingredients => ingredients.ingredient).join('');
+        return value;
     }
-    return false;
+    if(tagType == 'appliances') {
+        value = recipe.appliance;
+        return value;
+    }
+    if(tagType == 'ustensils') {
+        value = recipe.ustensils.join('');
+        return value;
+    }
+    return 'Error tag type';
 }

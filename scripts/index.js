@@ -3,6 +3,7 @@ import { dishFactory } from "./dish-factory.js";
 import { dropDownFactory } from "./dropdown-factory.js";
 import { addDropDownEventListener } from "./event-listeners.js";
 import { addSearchListeners } from "./search-v1.js";
+import { removeAllKeyWords } from "./utils.js";
 
 export let ingredientsSet;
 export let appliancesSet;
@@ -25,6 +26,8 @@ export function searched(newRecipes) {
     let tempIngredientsList = [];
     let tempApplianceList = [];
     let tempUstensilList = [];
+    removeDishes();
+    removeAllKeyWords();
     newRecipes.forEach(recipe => {
         const dishModel = dishFactory(recipe);
         const dishCard = dishModel.getDishCardDOM();
@@ -58,9 +61,7 @@ export function searched(newRecipes) {
         dropDownModel.addUstensil();
     });
 
-    addDropDownEventListener();
-
-    addSearchListeners();
+    
 }
 
 export function init() {
