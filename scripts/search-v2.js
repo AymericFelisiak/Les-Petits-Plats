@@ -4,7 +4,7 @@ import { init } from "./index.js";
 import { searched } from "./index.js";
 import { removeAllKeyWords } from "./utils.js";
 import { compareEntries } from "./utils.js";
-import { test } from "./utils.js";
+import { compareRecipeToSearch } from "./utils.js";
 
 // First version of search algorithm. Supposedly the slowest
 
@@ -47,7 +47,7 @@ function searchFromBar(recipeList, searchValue) {
     let i, length = recipeList.length, tempRecipeList = [];
     for(i = 0; i < length; i++) {
         const joinedIngredients = recipeList[i].ingredients.map(elm => elm.ingredient).join(',');
-        if(test(recipeList[i].name, recipeList[i].description, joinedIngredients, searchValue)) {
+        if(compareRecipeToSearch(recipeList[i].name, recipeList[i].description, joinedIngredients, searchValue)) {
             tempRecipeList.push(recipeList[i]);
         }
     }

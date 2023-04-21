@@ -37,7 +37,7 @@ export function compareEntries(data1, data2) {
     return false;
 }
 
-export function test(name, description, ingredients, searchValue) {
+export function compareRecipeToSearch(name, description, ingredients, searchValue) {
     name = name.toLowerCase();
     description = description.toLowerCase();
     ingredients = ingredients.toLowerCase();
