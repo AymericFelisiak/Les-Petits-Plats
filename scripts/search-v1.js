@@ -64,7 +64,7 @@ function searchFromBar(recipeList, searchValue) {
         if(compareRecipeToSearch(recipe.name, recipe.description, joinedIngredients, searchValue)) {
             tempRecipeList.push(recipe);
         }
-    })
+    });
     newRecipeList = tempRecipeList;
 } 
 
