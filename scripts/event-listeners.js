@@ -12,28 +12,51 @@ export function addDropDownEventListener() {
 }
 
 // Creates new attribute to extend the menu
-function expandMenu(node, attribute) {
+function expandMenu(headerNode, dropDownNode, attribute) {
     const newAttribute = attribute + ' display';
-    node.setAttribute('class', newAttribute);
+    const type = getType(attribute);
+    const input = headerNode.querySelector('input');
+    dropDownNode.setAttribute('class', newAttribute);
+    headerNode.setAttribute('class', 'drop-down-header expanded');
+
+    if(type == 'ingredients') {
+        input.setAttribute('placeholder', 'Rechercher un ingrédient');
+    }
+    else if(type == 'appliances') {
+        input.setAttribute('placeholder', 'Rechercher un appareil');
+    }
+    else input.setAttribute('placeholder', 'Rechercher un ustensil');
 }
 
 // Creates new attribute to retract the menu
-function retractMenu(node, attribute) {
-    const newAttribute = 'drop-down-content ' + getType(attribute);
-    node.setAttribute('class', newAttribute);
+function retractMenu(headerNode, dropDownNode, attribute) {
+    const type = getType(attribute);
+    const input = headerNode.querySelector('input');
+    const newAttribute = 'drop-down-content ' + type;
+    dropDownNode.setAttribute('class', newAttribute);
+    headerNode.setAttribute('class', 'drop-down-header');
+
+    if(type == 'ingredients') {
+        input.setAttribute('placeholder', 'Ingrédients');
+    }
+    else if(type == 'appliances') {
+        input.setAttribute('placeholder', 'Appareils');
+    }
+    else input.setAttribute('placeholder', 'Ustensils');
 }
 
 // Handler when menu is clicked
 function dropDownEvent() {
     if (!opened) {
         const dropDownContent = this.querySelector('.drop-down-content');
+        const dropDownHeader = this.querySelector('.drop-down-header');
         const attribute = dropDownContent.getAttribute('class');
 
         if (attribute.split(' ').length == 2) {
-            expandMenu(dropDownContent, attribute);
+            expandMenu(dropDownHeader, dropDownContent, attribute);
         }
         else {
-            retractMenu(dropDownContent, attribute);
+            retractMenu(dropDownHeader, dropDownContent, attribute);
         }
         opened = true;
     }
@@ -41,16 +64,19 @@ function dropDownEvent() {
         const dropDownMenuWrapper = document.querySelector('.drop-down-menus-wrapper');
         const expandedMenu = dropDownMenuWrapper.querySelector('.display');
         const expandedMenuAttribute = expandedMenu.getAttribute('class');
+        const dropDownHeader = this.querySelector('.drop-down-header');
 
         if(this === expandedMenu.parentElement) {   // If the menu clicked is the one opened, closes the menu
-            retractMenu(expandedMenu, expandedMenuAttribute);
+            retractMenu(dropDownHeader, expandedMenu, expandedMenuAttribute);
             opened = false;
         }
         else {  // If this is not the same, closes the old one and opens the new one
             const newExpandedMenu = this.querySelector('.drop-down-content');
             const newExpandedMenuAttribute = newExpandedMenu.getAttribute('class');
-            retractMenu(expandedMenu, expandedMenuAttribute);
-            expandMenu(newExpandedMenu, newExpandedMenuAttribute);
+            const expandedHeader = document.querySelector('.expanded');
+
+            retractMenu(expandedHeader, expandedMenu, expandedMenuAttribute);
+            expandMenu(dropDownHeader, newExpandedMenu, newExpandedMenuAttribute);
         }
     }
 }
