@@ -113,7 +113,7 @@ div {
 .drop-down-menus-wrapper {
     display: flex;
     column-gap: 20px;
-    max-height: 70px;
+    max-height: 64px;
     margin-top: 15px;
 
     .drop-down-button {
@@ -130,6 +130,15 @@ div {
 
             &.expanded {
                 max-width: none;
+
+                input {
+                    width: 100%;
+
+                    &::placeholder {
+                        color: rgba($color: white, $alpha: 0.50)
+                    }
+                    
+                }
             }
     
             input {
@@ -153,6 +162,8 @@ div {
 
         .drop-down-content {
             display: none;
+            border-radius: 0px 0px 5px 5px;
+            top: -5px;
             grid-template-columns: 1fr 1fr 1fr;
             padding: 0px 20px 20px 20px;
             row-gap: 10px;
@@ -208,6 +219,7 @@ div {
             padding-left: 20px;
             padding-right: 20px;
             padding-top: 20px;
+            margin-bottom: 15px;
             overflow: hidden;
 
             .top-wrapper {
@@ -216,7 +228,6 @@ div {
                 justify-content: space-between;
 
                 .dish-name-wrapper {
-                    display: flex;
 
                     h2 {
                         font-family: 'Lato';
@@ -229,6 +240,7 @@ div {
                     display: flex;
                     align-items: center;
                     column-gap: 5px;
+                    white-space: nowrap;
 
                     .fa-clock {
                         font-size: 20px;
@@ -249,8 +261,7 @@ div {
 
             .bottom-wrapper {
                 display: flex;
-                height: 110px;
-                overflow: hidden;
+                height: 100px;
 
                 .ingredients-list-wrapper {
                     width: 50%;
@@ -266,6 +277,13 @@ div {
                     font-style: normal;
                     font-weight: 400;
                     font-size: 12px;
+
+                    p {
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 6;
+                        overflow: hidden;
+                    }
                 }
             }
         }
