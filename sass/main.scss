@@ -41,10 +41,6 @@ i {
     color: white;
 }
 
-div {
-    border-radius: 5px;
-}
-
 .searchbar-wrapper {
     display: flex;
     align-items: center;
@@ -95,6 +91,7 @@ div {
 
     .tag {
         display: flex;
+        border-radius: 5px;
         align-items: center;
         column-gap: 10px;
         padding: 0px 20px 0px 20px;
@@ -120,6 +117,7 @@ div {
 
         position: relative;
         z-index: 1;
+        border-radius: 5px;
 
         .drop-down-header {
             display: flex;
@@ -209,12 +207,14 @@ div {
         height: 365px;
         
         .img-wrapper {
+            border-radius: 5px 5px 0px 0px;
             background-color: $grey;
             height: 175px;
         }
 
         .information-wrapper {
             background-color: $lightgrey;
+            border-radius: 0px 0px 5px 5px;
             height: 190px;
             padding-left: 20px;
             padding-right: 20px;
