@@ -50,7 +50,6 @@ export function ustensilSearch() {
         ustensilsList = [];
         ustentilsSet.forEach(ustensil => {
             if(compareEntries(ustensil, this.value)) {
-                console.log(ustensil);
                 ustensilsList.push(ustensil);
             }
         });
