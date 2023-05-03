@@ -1,7 +1,7 @@
 import { recipes } from "../data/recipes.js";
 import { dishFactory } from "./dish-factory.js";
 import { dropDownFactory } from "./dropdown-factory.js";
-import { addDropDownEventListener } from "./event-listeners.js";
+import { addDropDownEventListener } from "./dropdown-menus.js";
 
 export let ingredientsSet;
 export let appliancesSet;
