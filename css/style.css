@@ -246,5 +246,15 @@ i {
   -webkit-line-clamp: 6;
   overflow: hidden;
 }
+.section-wrapper .no-results {
+  display: none;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+}
+.section-wrapper .no-results.display {
+  display: block;
+}
 
 /*# sourceMappingURL=style.css.map */

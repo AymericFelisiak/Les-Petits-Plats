@@ -21,6 +21,14 @@ export function addDishes(node) {
     sectionWrapper.appendChild(node);
 }
 
+function noResults(section) {
+    const message = 'Aucuns résultats';
+    const p = document.createElement('p');
+    p.textContent = message;
+    p.setAttribute('class', 'no-results display');
+    section.appendChild(p);
+}
+
 export function searched(newRecipes) {
     const sectionWrapper = document.querySelector('.section-wrapper');
     let tempIngredientsList = [];
@@ -61,7 +69,9 @@ export function searched(newRecipes) {
         dropDownModel.addUstensil();
     });
 
-    
+    if(newRecipes.length == 0) {
+        noResults(sectionWrapper);
+    }
 }
 
 
