@@ -1,4 +1,4 @@
-import { keywordHandler } from "./event-listeners.js";
+import { keywordHandler } from "./dropdown-menus.js";
 import { ingredientSearch, applianceSearch, ustensilSearch } from "./dropdown-search.js";
 
 // Factory to add keywords in dropdown menus
