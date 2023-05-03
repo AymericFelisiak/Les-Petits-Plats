@@ -1,3 +1,3 @@
 # Les-Petits-Plats
 
-Search functions using foreach
+Search functions using foreach loops
