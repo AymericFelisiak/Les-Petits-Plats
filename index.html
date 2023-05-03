@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/d376135941.js" crossorigin="anonymous"></script>
+    <script type="module" src="scripts/index.js"></script>
     <title>Les Petits Plats</title>
 </head>
 <body>
@@ -14,12 +15,43 @@
         </a>
     </header>
     <main>
-        <form class="searchbar-wrapper">
-            <input type="text" placeholder="Rechercher une recette">
+        <div class="searchbar-wrapper">
+            <input id="searchbar" type="text" placeholder="Rechercher une recette">
             <button>
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
-        </form>
+        </div>
+        <div class="filter-tags-wrapper"></div>
+        <div class="drop-down-menus-wrapper">
+            <div class="drop-down-button ingredients">
+                <div class="drop-down-header">
+                    <input placeholder="Ingrédients"></input>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="drop-down-content ingredients">
+
+                </div>
+            </div>
+            <div class="drop-down-button appliances">
+                <div class="drop-down-header">
+                    <input placeholder="Appareils"></input>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="drop-down-content appliances">
+
+                </div>
+            </div>
+            <div class="drop-down-button ustensils">
+                <div class="drop-down-header">
+                    <input placeholder="Ustensiles"></input>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="drop-down-content ustensils">
+
+                </div>
+            </div>
+        </div>
+        <section class="section-wrapper"></section>
     </main>
 </body>
 </html>
