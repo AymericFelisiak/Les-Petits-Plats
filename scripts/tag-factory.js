@@ -1,4 +1,4 @@
-import { removeTagHandler } from "./event-listeners.js";
+import { removeTagHandler } from "./dropdown-menus.js";
 
 // Creates tag when user clicks on a keyword
 export function tagFactory(data, type) {
