@@ -1,7 +1,7 @@
 import { recipes } from "../data/recipes.js";
 import { dishFactory } from "./dish-factory.js";
 import { dropDownFactory } from "./dropdown-factory.js";
-import { addDropDownEventListener } from "./event-listeners.js";
+import { addDropDownEventListener } from "./dropdown-menus.js";
 import { addSearchListeners } from "./search-v1.js";
 import { removeAllKeyWords } from "./utils.js";
 
@@ -61,7 +61,9 @@ export function searched(newRecipes) {
         dropDownModel.addUstensil();
     });
 
-    
+    if(newRecipes.length == 0) {
+        console.log('yikes');
+    }
 }
 
 export function init() {
