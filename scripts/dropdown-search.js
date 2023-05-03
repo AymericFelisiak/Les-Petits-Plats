@@ -53,7 +53,7 @@ export function ustensilSearch() {
                 ustensilsList.push(ustensil);
             }
         });
-        if(appliancesList.length > 0) {
+        if(ustensilsList.length > 0) {
             removeUstensilsKeywords();
             newUstensilsKeywords(ustensilsList);
         }
