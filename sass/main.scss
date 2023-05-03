@@ -288,4 +288,16 @@ i {
             }
         }
     }
+
+    .no-results {
+        display: none;
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+
+        &.display {
+            display: block;
+        }
+    }
 }
