@@ -60,8 +60,7 @@ export function search() {
 function searchFromBar(recipeList, searchValue) {
     let tempRecipeList = [];
     recipeList.forEach(recipe => {
-        const joinedIngredients = recipe.ingredients.map(elm => elm.ingredient).join('');
-        if(compareRecipeToSearch(recipe.name, recipe.description, joinedIngredients, searchValue)) {
+        if(compareRecipeToSearch(recipe.name, recipe.description, recipe.ingredients, searchValue)) {
             tempRecipeList.push(recipe);
         }
     });
