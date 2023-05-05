@@ -3,9 +3,9 @@ import { dropDownFactory } from "./dropdown-factory.js";
 
 export function tagExists(name, type) {
     const length = tagList.length;
-    if(length > 0) {
-        for(let i = 0; i < length; i++) {
-            if(tagList[i].name === name && tagList[i].type === type) {
+    if (length > 0) {
+        for (let i = 0; i < length; i++) {
+            if (tagList[i].name === name && tagList[i].type === type) {
                 return true;
             }
         }
@@ -15,8 +15,8 @@ export function tagExists(name, type) {
 
 export function removeFromTagList(name, type) {
     const length = tagList.length;
-    for(let i = 0; i < length; i++) {
-        if(tagList[i].name === name && tagList[i].type === type) {
+    for (let i = 0; i < length; i++) {
+        if (tagList[i].name === name && tagList[i].type === type) {
             tagList.splice(i, 1);
             return;
         }
@@ -24,14 +24,14 @@ export function removeFromTagList(name, type) {
 }
 
 export function addToTagList(name, type) {
-    const tag = {name: name, type: type};
+    const tag = { name: name, type: type };
     tagList.push(tag);
 }
 
 export function compareEntries(data1, data2) {
     data1 = data1.toLowerCase();
     data2 = data2.toLowerCase();
-    if(data1.includes(data2)) {
+    if (data1.includes(data2)) {
         return true;
     }
     return false;
@@ -40,12 +40,15 @@ export function compareEntries(data1, data2) {
 export function compareRecipeToSearch(name, description, ingredients, searchValue) {
     name = name.toLowerCase();
     description = description.toLowerCase();
-    ingredients = ingredients.toLowerCase();
     searchValue = searchValue.toLowerCase();
-    if(name.includes(searchValue) 
-        || description.includes(searchValue) 
-        || ingredients.includes(searchValue)) {
+    if (name.includes(searchValue) || description.includes(searchValue)) {
+        return true;
+    }
+    for (let i = 0; i < ingredients.length; i++) {
+        const ingredient = ingredients[i].ingredient.toLowerCase();
+        if (ingredient.includes(searchValue)) {
             return true;
+        }
     }
     return false;
 }
